@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import BiclooKit
 
 class SearchViewController: UIViewController {
 
@@ -18,6 +19,10 @@ class SearchViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 
 	override func viewDidAppear(_ animated: Bool) {
+
+        let greeting = Greeting().greeting()
+        print("GREETING \(greeting)")
+
 		super.viewDidAppear(animated)
 		viewModel.$contracts
 			.sink { [weak self] contracts in

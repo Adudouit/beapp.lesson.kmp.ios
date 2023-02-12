@@ -22,6 +22,8 @@
 		1F3DABC628D0914F00DBEA3A /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3DABBE28D0914F00DBEA3A /* MapViewController.xib */; };
 		1F3DABC728D0914F00DBEA3A /* ResultPagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3DABBF28D0914F00DBEA3A /* ResultPagerViewController.xib */; };
 		1F3DABC928D0917800DBEA3A /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DABC828D0917800DBEA3A /* StationsViewModel.swift */; };
+		1F913F9929994E6D003F4519 /* BiclooKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F913F9829994E6D003F4519 /* BiclooKit.xcframework */; };
+		1F913F9A29994E6D003F4519 /* BiclooKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F913F9829994E6D003F4519 /* BiclooKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C5E2A7428C1E157000BDFA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E2A7328C1E157000BDFA2 /* AppDelegate.swift */; };
 		9C5E2A7628C1E157000BDFA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E2A7528C1E157000BDFA2 /* SceneDelegate.swift */; };
 		9C5E2A7B28C1E157000BDFA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C5E2A7928C1E157000BDFA2 /* Main.storyboard */; };
@@ -55,6 +57,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F913F9B29994E6E003F4519 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F913F9A29994E6D003F4519 /* BiclooKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F3DABA928D087F800DBEA3A /* AFRequestInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFRequestInterceptor.swift; sourceTree = "<group>"; };
 		1F3DABAC28D08A9C00DBEA3A /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -71,6 +87,7 @@
 		1F3DABBE28D0914F00DBEA3A /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		1F3DABBF28D0914F00DBEA3A /* ResultPagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultPagerViewController.xib; sourceTree = "<group>"; };
 		1F3DABC828D0917800DBEA3A /* StationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewModel.swift; sourceTree = "<group>"; };
+		1F913F9829994E6D003F4519 /* BiclooKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BiclooKit.xcframework; path = ../android/shared/build/XCFrameworks/release/BiclooKit.xcframework; sourceTree = "<group>"; };
 		9C5E2A7028C1E157000BDFA2 /* bicloo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bicloo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5E2A7328C1E157000BDFA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C5E2A7528C1E157000BDFA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F913F9929994E6D003F4519 /* BiclooKit.xcframework in Frameworks */,
 				9C5E2AA528C1E2A8000BDFA2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +177,14 @@
 			path = stations;
 			sourceTree = "<group>";
 		};
+		1F913F9729994E6D003F4519 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F913F9829994E6D003F4519 /* BiclooKit.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9C5E2A6728C1E157000BDFA2 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +193,7 @@
 				9C5E2A8928C1E159000BDFA2 /* biclooTests */,
 				9C5E2A9328C1E159000BDFA2 /* biclooUITests */,
 				9C5E2A7128C1E157000BDFA2 /* Products */,
+				1F913F9729994E6D003F4519 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +305,7 @@
 				9C5E2A6C28C1E157000BDFA2 /* Sources */,
 				9C5E2A6D28C1E157000BDFA2 /* Frameworks */,
 				9C5E2A6E28C1E157000BDFA2 /* Resources */,
+				1F913F9B29994E6E003F4519 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
