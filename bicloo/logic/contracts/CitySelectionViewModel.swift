@@ -7,10 +7,11 @@
 
 import Foundation
 import Combine
+import BiclooKit
 
 class CitySelectionViewModel: ObservableObject {
 
-	private let restManager = RestManager()
+    private let restManager = DataSource.shared
 
 	private var originalContracts: [ContractEntity] = []
 
@@ -23,17 +24,14 @@ class CitySelectionViewModel: ObservableObject {
 	}
 
 	func fetchContracts() {
-
-		restManager.fetchContracts()
-			.catch({ [weak self] error -> Just<[ContractDTO]> in
-				self?.throwable = StationsError.apiError
-				return Just<[ContractDTO]>([])
-			})
-				.map({ [weak self] response -> [ContractEntity] in
-					self?.isLoading = false
-					return response.map { $0.toEntity() }
-				})
-					.assign(to: &$contracts)
+        restManager.getContracts { contracts, error in
+            if let error_ = error {
+                print("ERROR \(error_)")
+            }
+            if let contracts_ = contracts {
+                self.contracts = contracts_
+            }
+        }
 
 	}
 

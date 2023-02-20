@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import BiclooKit
 
 enum StationsError: Error {
     case apiError
@@ -14,7 +15,7 @@ enum StationsError: Error {
 
 class StationsViewModel: ObservableObject {
 
-	private let restManager = RestManager()
+    private let restManager = DataSource.shared
 
 	@Published var stations: [StationEntity] = []
 	@Published private(set) var isLoading: Bool = false
@@ -24,19 +25,18 @@ class StationsViewModel: ObservableObject {
 
 	private init() {}
 
-	func fetchStations(contract: ContractEntity) {
-		isLoading = true
-		restManager.getStationsOfCity(city: contract.name)
-			.catch({ [weak self] error -> Just<StationsDTO> in
-				self?.throwable = StationsError.apiError
-				return Just<StationsDTO>([])
-			})
-				.map({ [weak self] response -> [StationEntity] in
-					self?.isLoading = false
-					let stations_ = response.map({ StationEntity(dto: $0) })
-					return stations_
-				})
-					.assign(to: &$stations)
-	}
+    func fetchStations(contract: ContractEntity) {
+        isLoading = true
+        DataSource.shared.getStationsOfCity(city: contract.name) { stations, error in
+            if let error_ = error {
+                print("ERROR \(error)")
+            }
+            if let stations_ = stations {
+                self.stations = stations_
+            }
+        }
+
+
+    }
 
 }
